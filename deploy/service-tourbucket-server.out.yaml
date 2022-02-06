@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-01-09T09:06:22Z"
+  labels:
+    app: tourbucket-server
+  name: tourbucket-server
+  namespace: default
+  resourceVersion: "31802191"
+  selfLink: /api/v1/namespaces/default/services/tourbucket-server
+  uid: 2fc5331e-74fe-439c-9317-d739f8118cf3
+spec:
+  clusterIP: 10.152.183.153
+  externalIPs:
+  - 192.168.1.103
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31044
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: tourbucket-server
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

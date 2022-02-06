@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: tourbucket-server
+  name: tourbucket-server
+  namespace: default
+spec:
+  externalIPs:
+  - 192.168.1.103
+  externalTrafficPolicy: Cluster
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: tourbucket-server
+  type: NodePort
